@@ -1,0 +1,180 @@
+<div class="container-fluid">
+    <div class="col-sm-7">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Formulário de Inscrição</div>
+            <div class="panel-body">
+                <form class="form-horizontal" ng-controller="inscricao.controller" ng-submit="save()" id="inscricao_form" name="inscricao_form">
+
+                    <div class="form-group" show-errors>
+                        <label class="col-sm-3 control-label">Nome:</label>
+                        <div class="col-sm-9">
+                            <input maxlength="60" type="text" class="form-control" name="nome" ng-model="inscrito.nome" required placeholder="Insira o nome"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Sexo:</label>
+                        <div class="col-sm-9">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="hosting" value="inscrito.masculino" /> Masculino
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="hosting" value="inscrito.feminino" /> Feminino
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input Data de Nascimento -->
+                    <div class="form-group" show-errors>
+                        <label class="col-sm-3 control-label">Data de Nascimento:</label>
+                        <div class="col-sm-9">
+                            <input required placeholder="dd/mm/aaaa" type="text" class="form-control" ng-model="inscrito.datanascimento" data-date-format="dd/MM/yyyy" data-date-type="number" data-max-date="02/10/02" data-autoclose="1" name="datanascimento" bs-datepicker>
+                        </div>
+                    </div>
+
+                    <!-- Select Escolaridade -->
+                    <div class="form-group" show-errors>
+                        <label class="col-sm-3 control-label">Nível de Escolaridade: </label>
+                        <div class="col-sm-9">
+                            <select required ng-model="inscrito.escolaridade" id="escolaridade" name="escolaridade" class="form-control">
+                                <option value="">Selecione</option>
+                                <option value="MEDIO">Ensino Médio Completo</option>
+                                <option value="TECNICO">Ensino Técnico</option>
+                                <option value="BACHAREL">Graduação (Bacharelado)</option>
+                                <option value="LICENCIATURA">Graduação (Licenciatura)</option>
+                                <option value="ESPECIALIZACAO">Especialização (Lato Sensu)</option>
+                                <option value="MESTRADO">Mestrado (Stricto Sensu)</option>
+                                <option value="DOUTORADO">Doutorado (Stricto Sensu)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- input Profissão-->
+                    <div class="form-group" show-errors>
+                        <label class="col-sm-3 control-label">Profissão:</label>
+                        <div class="col-sm-9">
+                            <input name="profissao" required placeholder="Insira a sua profissão" maxlength="35" class="form-control" type="text" ng-model="inscrito.profissao" id="profissao"/>
+                        </div>
+                    </div>
+
+                    <!-- input Instituição-->
+                    <div class="form-group" show-errors>
+                        <label class="col-sm-3 control-label">Instituição/Empresa onde Trabalha:</label>
+                        <div class="col-sm-9">
+                            <input name="instituicao" required placeholder="Insira a sua instituição" maxlength="45" class="form-control" type="text" ng-model="inscrito.instituicao" id="instituicao"/>
+                        </div>
+                    </div>
+
+                    <!-- input Cidade-->
+                    <div class="form-group" show-errors>
+                        <label class="col-sm-3 control-label">Cidade:</label>
+                        <div class="col-sm-9">
+                            <input name="cidade" required placeholder="Insira a cidade" maxlength="45" class="form-control" type="text" ng-model="inscrito.cidade" id="cidade"/>
+                        </div>
+                    </div>
+
+                    <!-- input Estado-->
+                    <div class="form-group" show-errors>
+                        <label class="col-sm-3 control-label">Estado:</label>
+                        <div class="col-sm-9">
+                            <input name="estado" required placeholder="Insira o estado" maxlength="45" class="form-control" type="text" ng-model="inscrito.estado" id="estado"/>
+                        </div>
+                    </div>
+
+                    <!-- input País-->
+                    <div class="form-group" show-errors>
+                        <label class="col-sm-3 control-label">País:</label>
+                        <div class="col-sm-9">
+                            <input name="pais" required placeholder="Insira o país" maxlength="45" class="form-control" type="text" ng-model="inscrito.pais" id="pais"/>
+                        </div>
+                    </div>
+
+                    <!-- input telefone-->
+                    <div class="form-group" show-errors>
+                        <label class="col-sm-3 control-label">Telefone:</label>
+                        <div class="col-sm-9">
+                            <input placeholder="(__) ____-____" mask="(99) 9?9999-9999" name="telefone" required placeholder="" maxlength="45" class="form-control" type="text" ng-model="inscrito.telefone" id="telefone"/>
+                        </div>
+                    </div>
+
+                    <!-- input cpf-->
+                    <div class="form-group" show-errors>
+                        <label class="col-sm-3 control-label">CPF:</label>
+                        <div class="col-sm-9">
+                            <input placeholder="___.___.___-__" mask="999.999.999-99" name="cpf" required placeholder="" maxlength="45" class="form-control" type="text" ng-model="inscrito.cpf" id="cpf"/>
+                        </div>
+                    </div>
+
+                    <!-- input Email-->
+                    <div class="form-group" show-errors>
+                        <label class="col-sm-3 control-label">Email:</label>
+                        <div class="col-sm-9">
+                            <input name="email" required placeholder="Insira um email válido" maxlength="45" class="form-control" type="email" ng-model="inscrito.email" id="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"/>
+                        </div>
+                    </div>
+
+                    <!-- radio checks -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Já estudou na modalidade EaD (Educação a Distância)?</label>
+                        <div class="col-md-4">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="hosting" value="true" /> Sim
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="hosting" value="false" /> Não
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- radio checks -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Por qual meio você soube de nosso Curso?</label>
+                        <div class="col-md-4">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="hosting" value="biogas" /> Site do CIBIogás-ER
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="hosting" value="amigos" /> Indicação de amigos
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="hosting" value="facebook" /> Facebook
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="hosting" value="email" /> Email
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="hosting" value="outros" /> Outro:
+                                    <input maxlength="25" disabled class="form-control"/>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"></label>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary" >Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
