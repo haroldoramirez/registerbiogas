@@ -64,6 +64,9 @@ public class Inscrito extends Model {
     @Column(nullable = false, length = 25)
     private String fonte;
 
+    @Column(nullable = false, length = 60)
+    private String observacoes;
+
     @Formats.DateTime(pattern="dd-MM-yyyy")
     private Date dataCadastro;
 
@@ -204,5 +207,13 @@ public class Inscrito extends Model {
 
     public void setDataAlteracao(Date dataAlteracao) {
         this.dataAlteracao = dataAlteracao;
+    }
+
+    public String getObservacoes() {
+        return observacoes;
+    }
+
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
     }
 }

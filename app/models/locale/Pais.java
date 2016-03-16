@@ -1,6 +1,7 @@
 package models.locale;
 
 import com.avaje.ebean.Model;
+import play.libs.Json;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +19,10 @@ public class Pais extends Model {
     @Id
     private Long id;
 
-    @Column(nullable = false, length = 60)
+    @Column(nullable = false, length = 2, unique = true)
+    private String sigla;
+
+    @Column(nullable = false, length = 80, unique = true)
     private String nome;
 
     public Long getId() {
@@ -35,5 +39,18 @@ public class Pais extends Model {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
+    }
+
+    @Override
+    public String toString() {
+        return Json.toJson(this).toString();
     }
 }

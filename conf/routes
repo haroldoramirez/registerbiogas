@@ -9,5 +9,17 @@ GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
 GET     /message                    controllers.AsyncController.message
 
+# Pais
+GET     /paises/:id                 controllers.PaisController.buscaPorId(id:Long)
+GET     /paises                     controllers.PaisController.buscaTodos()
+GET     /paises/filtro/:filtro      controllers.PaisController.filtra(filtro:String)
+
+# Inscrito
+POST    /inscritos                     controllers.InscritoController.inserir()
+PUT     /inscritos/:id                 controllers.InscritoController.atualizar(id:Long)
+GET     /inscritos/:id                 controllers.InscritoController.buscaPorId(id:Long)
+GET     /inscritos                     controllers.InscritoController.buscaTodos()
+GET     /inscritos/filtro/:filtro      controllers.InscritoController.filtra(filtro:String)
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

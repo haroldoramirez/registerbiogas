@@ -1,28 +1,28 @@
 <div class="container-fluid">
-    <div class="col-sm-7">
-        <div class="panel panel-primary">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
             <div class="panel-heading">Formulário de Inscrição</div>
             <div class="panel-body">
-                <form class="form-horizontal" ng-controller="inscricao.controller" ng-submit="save()" id="inscricao_form" name="inscricao_form">
+                <form ng-init="init()" class="form-horizontal" ng-controller="inscricao.controller" ng-submit="save()" id="inscricao_form" name="inscricao_form">
 
                     <div class="form-group" show-errors>
-                        <label class="col-sm-3 control-label">Nome:</label>
-                        <div class="col-sm-9">
+                        <label class="col-sm-4 control-label">Nome:</label>
+                        <div class="col-sm-5">
                             <input maxlength="60" type="text" class="form-control" name="nome" ng-model="inscrito.nome" required placeholder="Insira o nome"/>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Sexo:</label>
-                        <div class="col-sm-9">
+                        <label class="col-sm-4 control-label">Sexo:</label>
+                        <div class="col-sm-3">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="hosting" value="inscrito.masculino" /> Masculino
+                                    <input required ng-model="inscrito.sexo" type="radio" name="sexo" value="m" /> Masculino
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="hosting" value="inscrito.feminino" /> Feminino
+                                    <input required ng-model="inscrito.sexo" type="radio" name="sexo" value="f" /> Feminino
                                 </label>
                             </div>
                         </div>
@@ -30,16 +30,16 @@
 
                     <!-- Input Data de Nascimento -->
                     <div class="form-group" show-errors>
-                        <label class="col-sm-3 control-label">Data de Nascimento:</label>
-                        <div class="col-sm-9">
+                        <label class="col-sm-4 control-label">Data de Nascimento:</label>
+                        <div class="col-sm-2">
                             <input required placeholder="dd/mm/aaaa" type="text" class="form-control" ng-model="inscrito.datanascimento" data-date-format="dd/MM/yyyy" data-date-type="number" data-max-date="02/10/02" data-autoclose="1" name="datanascimento" bs-datepicker>
                         </div>
                     </div>
 
                     <!-- Select Escolaridade -->
                     <div class="form-group" show-errors>
-                        <label class="col-sm-3 control-label">Nível de Escolaridade: </label>
-                        <div class="col-sm-9">
+                        <label class="col-sm-4 control-label">Nível de Escolaridade: </label>
+                        <div class="col-sm-2">
                             <select required ng-model="inscrito.escolaridade" id="escolaridade" name="escolaridade" class="form-control">
                                 <option value="">Selecione</option>
                                 <option value="MEDIO">Ensino Médio Completo</option>
@@ -55,64 +55,66 @@
 
                     <!-- input Profissão-->
                     <div class="form-group" show-errors>
-                        <label class="col-sm-3 control-label">Profissão:</label>
-                        <div class="col-sm-9">
+                        <label class="col-sm-4 control-label">Profissão:</label>
+                        <div class="col-sm-3">
                             <input name="profissao" required placeholder="Insira a sua profissão" maxlength="35" class="form-control" type="text" ng-model="inscrito.profissao" id="profissao"/>
                         </div>
                     </div>
 
                     <!-- input Instituição-->
                     <div class="form-group" show-errors>
-                        <label class="col-sm-3 control-label">Instituição/Empresa onde Trabalha:</label>
-                        <div class="col-sm-9">
+                        <label class="col-sm-4 control-label">Instituição:</label>
+                        <div class="col-sm-3">
                             <input name="instituicao" required placeholder="Insira a sua instituição" maxlength="45" class="form-control" type="text" ng-model="inscrito.instituicao" id="instituicao"/>
                         </div>
                     </div>
 
-                    <!-- input Cidade-->
+                    <!-- Select Países -->
                     <div class="form-group" show-errors>
-                        <label class="col-sm-3 control-label">Cidade:</label>
-                        <div class="col-sm-9">
-                            <input name="cidade" required placeholder="Insira a cidade" maxlength="45" class="form-control" type="text" ng-model="inscrito.cidade" id="cidade"/>
+                        <label class="col-sm-4 control-label">País: </label>
+                        <div class="col-sm-3">
+                            <select required ng-options="pais.nome for pais in paises" ng-model="inscrito.pais" id="pais" name="pais" class="form-control">
+                                <option value="">Selecione</option>
+                            </select>
                         </div>
                     </div>
 
                     <!-- input Estado-->
                     <div class="form-group" show-errors>
-                        <label class="col-sm-3 control-label">Estado:</label>
-                        <div class="col-sm-9">
+                        <label class="col-sm-4 control-label">Estado:</label>
+                        <div class="col-sm-3">
                             <input name="estado" required placeholder="Insira o estado" maxlength="45" class="form-control" type="text" ng-model="inscrito.estado" id="estado"/>
                         </div>
                     </div>
 
-                    <!-- input País-->
+                    <!-- input Cidade-->
                     <div class="form-group" show-errors>
-                        <label class="col-sm-3 control-label">País:</label>
-                        <div class="col-sm-9">
-                            <input name="pais" required placeholder="Insira o país" maxlength="45" class="form-control" type="text" ng-model="inscrito.pais" id="pais"/>
+                        <label class="col-sm-4 control-label">Cidade:</label>
+                        <div class="col-sm-3">
+                            <input name="cidade" required placeholder="Insira a cidade" maxlength="45" class="form-control" type="text" ng-model="inscrito.cidade" id="cidade"/>
                         </div>
                     </div>
 
                     <!-- input telefone-->
                     <div class="form-group" show-errors>
-                        <label class="col-sm-3 control-label">Telefone:</label>
-                        <div class="col-sm-9">
+                        <label class="col-sm-4 control-label">Telefone:</label>
+                        <div class="col-sm-2">
                             <input placeholder="(__) ____-____" mask="(99) 9?9999-9999" name="telefone" required placeholder="" maxlength="45" class="form-control" type="text" ng-model="inscrito.telefone" id="telefone"/>
                         </div>
                     </div>
 
                     <!-- input cpf-->
                     <div class="form-group" show-errors>
-                        <label class="col-sm-3 control-label">CPF:</label>
-                        <div class="col-sm-9">
+                        <label class="col-sm-4 control-label">CPF:</label>
+                        <div class="col-sm-2">
                             <input placeholder="___.___.___-__" mask="999.999.999-99" name="cpf" required placeholder="" maxlength="45" class="form-control" type="text" ng-model="inscrito.cpf" id="cpf"/>
                         </div>
                     </div>
 
                     <!-- input Email-->
                     <div class="form-group" show-errors>
-                        <label class="col-sm-3 control-label">Email:</label>
-                        <div class="col-sm-9">
+                        <label class="col-sm-4 control-label">Email:</label>
+                        <div class="col-sm-3">
                             <input name="email" required placeholder="Insira um email válido" maxlength="45" class="form-control" type="email" ng-model="inscrito.email" id="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"/>
                         </div>
                     </div>
@@ -123,12 +125,12 @@
                         <div class="col-md-4">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="hosting" value="true" /> Sim
+                                    <input required ng-model="inscrito.ead" type="radio" name="ead" value="t" /> Sim
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="hosting" value="false" /> Não
+                                    <input required ng-model="inscrito.ead" type="radio" name="ead" value="f" /> Não
                                 </label>
                             </div>
                         </div>
@@ -140,28 +142,30 @@
                         <div class="col-md-4">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="hosting" value="biogas" /> Site do CIBIogás-ER
+                                    <input required ng-change='radioValue("biogas")' ng-model="inscrito.fonte" type="radio" name="fonte" value="biogas" /> Site do CIBIogás-ER
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="hosting" value="amigos" /> Indicação de amigos
+                                    <input required ng-change='radioValue("amigos")' ng-model="inscrito.fonte" type="radio" name="fonte" value="amigos" /> Indicação de amigos
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="hosting" value="facebook" /> Facebook
+                                    <input required ng-change='radioValue("facebook")' ng-model="inscrito.fonte" type="radio" name="fonte" value="facebook" /> Facebook
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="hosting" value="email" /> Email
+                                    <input required ng-change='radioValue("email")' ng-model="inscrito.fonte" type="radio" name="fonte" value="email" /> Email
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="hosting" value="outros" /> Outro:
-                                    <input maxlength="25" disabled class="form-control"/>
+                                    <input required ng-change='radioValue("outros")' ng-model="inscrito.fonte" type="radio" name="fonte" value="outros" /> Outro:
+                                    <div class="form-group" show-errors>
+                                        <input required name="observacoes" ng-model="inscrito.observacoes" ng-disabled='!ativaInput' maxlength="25" class="form-control"/>
+                                    </div>
                                 </label>
                             </div>
                         </div>

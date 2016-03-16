@@ -18,7 +18,8 @@ angular
                 controller: 'home.controller'
             })
             .when('/inscricao', {
-                templateUrl: '/assets/app/views/inscricao.html'
+                templateUrl: '/assets/app/views/inscricao.html',
+                controller: 'inscricao.controller'
             });
     })
     .config(function($datepickerProvider) {
