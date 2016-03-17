@@ -17,7 +17,7 @@ angular
                 templateUrl: '/assets/app/views/home.html',
                 controller: 'home.controller'
             })
-            .when('/inscricao', {
+            .when('/inscricao/novo', {
                 templateUrl: '/assets/app/views/inscricao.html',
                 controller: 'inscricao.controller'
             });

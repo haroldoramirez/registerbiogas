@@ -5,6 +5,7 @@ import models.locale.Cidade;
 import models.locale.Estado;
 import models.locale.Pais;
 import play.data.format.Formats;
+import play.libs.Json;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,7 +15,7 @@ import java.util.Date;
  */
 
 @Entity
-public class Inscrito extends Model {
+public class Inscricao extends Model {
 
     private static final long serialVersionUID = 1L;
 
@@ -42,12 +43,6 @@ public class Inscrito extends Model {
 
     @ManyToOne(cascade = CascadeType.MERGE, optional = false)
     private Cidade cidade;
-
-    @ManyToOne(cascade = CascadeType.MERGE, optional = false)
-    private Estado estado;
-
-    @ManyToOne(cascade = CascadeType.MERGE, optional = false)
-    private Pais pais;
 
     @Column(nullable = false, length = 12)
     private String telefone;
@@ -137,22 +132,6 @@ public class Inscrito extends Model {
         this.cidade = cidade;
     }
 
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
-
-    public Pais getPais() {
-        return pais;
-    }
-
-    public void setPais(Pais pais) {
-        this.pais = pais;
-    }
-
     public String getTelefone() {
         return telefone;
     }
@@ -215,5 +194,10 @@ public class Inscrito extends Model {
 
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
+    }
+
+    @Override
+    public String toString() {
+        return Json.toJson(this).toString();
     }
 }

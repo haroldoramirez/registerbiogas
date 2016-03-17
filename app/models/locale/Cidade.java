@@ -2,15 +2,16 @@ package models.locale;
 
 import com.avaje.ebean.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by haroldo on 14/03/16.
  */
 
 @Entity
+@Table(uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"nome" , "estado_id"})
+})
 public class Cidade extends Model {
 
     private static final long serialVersionUID = 1L;
@@ -20,6 +21,9 @@ public class Cidade extends Model {
 
     @Column(nullable = false, length = 60)
     private String nome;
+
+    @ManyToOne(cascade = CascadeType.MERGE, optional = false)
+    private Estado estado;
 
     public Long getId() {
         return id;
@@ -35,5 +39,13 @@ public class Cidade extends Model {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 }

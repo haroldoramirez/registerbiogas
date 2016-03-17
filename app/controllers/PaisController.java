@@ -33,9 +33,8 @@ public class PaisController extends Controller {
 
     public Result filtra(String filtro) {
 
-        Query<Pais> query = Ebean.createQuery(Pais.class, "find pais where (nome like :nome or name like :name)");
+        Query<Pais> query = Ebean.createQuery(Pais.class, "find pais where (nome like :nome)");
         query.setParameter("nome", "%" + filtro + "%");
-        query.setParameter("name", "%" + filtro + "%");
         List<Pais> filtroDePaises = query.findList();
 
         return ok(Json.toJson(filtroDePaises));

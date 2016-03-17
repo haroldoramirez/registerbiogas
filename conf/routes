@@ -10,16 +10,16 @@ GET     /count                      controllers.CountController.count
 GET     /message                    controllers.AsyncController.message
 
 # Pais
-GET     /paises/:id                 controllers.PaisController.buscaPorId(id:Long)
-GET     /paises                     controllers.PaisController.buscaTodos()
-GET     /paises/filtro/:filtro      controllers.PaisController.filtra(filtro:String)
+GET     /pais/:id                 controllers.PaisController.buscaPorId(id:Long)
+GET     /paises                   controllers.PaisController.buscaTodos()
+GET     /pais/filtro/:filtro      controllers.PaisController.filtra(filtro:String)
 
 # Inscrito
-POST    /inscritos                     controllers.InscritoController.inserir()
-PUT     /inscritos/:id                 controllers.InscritoController.atualizar(id:Long)
-GET     /inscritos/:id                 controllers.InscritoController.buscaPorId(id:Long)
-GET     /inscritos                     controllers.InscritoController.buscaTodos()
-GET     /inscritos/filtro/:filtro      controllers.InscritoController.filtra(filtro:String)
+POST    /inscricao                     controllers.InscricaoController.inserir()
+PUT     /inscricao/:id                 controllers.InscricaoController.atualizar(id:Long)
+GET     /inscricao/:id                 controllers.InscricaoController.buscaPorId(id:Long)
+GET     /inscricoes                    controllers.InscricaoController.buscaTodos()
+GET     /inscricao/filtro/:filtro      controllers.InscricaoController.filtra(filtro:String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
