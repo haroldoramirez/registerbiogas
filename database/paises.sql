@@ -161,7 +161,7 @@ insert into pais (sigla,nome) values ('NE', 'Niger');
 insert into pais (sigla,nome) values ('NG', 'Nigeria');
 insert into pais (sigla,nome) values ('NU', 'Niue');
 insert into pais (sigla,nome) values ('NF', 'Norfolk Island');
-insert into pais (sigla,nome)  values ('MP', 'Northern Mariana Islands');
+insert into pais (sigla,nome) values ('MP', 'Northern Mariana Islands');
 insert into pais (sigla,nome) values ('NO', 'Norway');
 insert into pais (sigla,nome) values ('OM', 'Oman');
 insert into pais (sigla,nome) values ('PK', 'Pakistan');

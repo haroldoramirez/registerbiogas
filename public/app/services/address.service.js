@@ -16,6 +16,8 @@ angular.module('registercibiogas')
     .service('Inscricao',['$resource', 'BaseUrl',
         function($resource, BaseUrl){
             return $resource(BaseUrl + '/inscricao/:id', {}, {
-                getAll: {method: 'GET', url: BaseUrl + '/inscricoes', isArray: true}
+                getAll: {method: 'GET', url: BaseUrl + '/inscricoes', isArray: true},
+                getEstadoByIdPais: {method: 'GET', params:{idPais:'idPais'}, url: BaseUrl + '/estados/pais/:idPais', isArray: true},
+                getCidadeByIdEstado: {method: 'GET', params:{idEstado:'idEstado'}, url: BaseUrl + '/cidades/estado/:idEstado', isArray: true}
           });
         }]);

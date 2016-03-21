@@ -23,7 +23,7 @@ public class Estado extends Model {
     @Column(nullable = false, length = 60)
     private String nome;
 
-    @Column(nullable = false, length = 3)
+    @Column(length = 3)
     private String sigla;
 
     @ManyToOne(cascade = CascadeType.MERGE, optional = false)

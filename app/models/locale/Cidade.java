@@ -1,6 +1,7 @@
 package models.locale;
 
 import com.avaje.ebean.Model;
+import play.libs.Json;
 
 import javax.persistence.*;
 
@@ -47,5 +48,10 @@ public class Cidade extends Model {
 
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return Json.toJson(this).toString();
     }
 }

@@ -14,7 +14,7 @@ create table cidade (
 create table estado (
   id                            bigserial not null,
   nome                          varchar(60) not null,
-  sigla                         varchar(3) not null,
+  sigla                         varchar(3),
   pais_id                       bigint not null,
   constraint uq_estado_nome_pais_id unique (nome,pais_id),
   constraint pk_estado primary key (id)

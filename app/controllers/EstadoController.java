@@ -77,6 +77,15 @@ public class EstadoController extends Controller {
         return ok(Json.toJson(estado));
     }
 
+    public Result buscaPorIdPais(Long id) {
+        Logger.info("Filtra Estado pelo ID Pais.");
+
+        Query<Estado> query = Ebean.createQuery(Estado.class, "find estado where (pais.id = :pais_id)");
+        query.setParameter("pais_id", id);
+        List<Estado> listaEstados = query.findList();
+        return ok(Json.toJson(listaEstados));
+    }
+
     public Result buscaTodos() {
         Logger.info("Busca todos os Estados.");
 
