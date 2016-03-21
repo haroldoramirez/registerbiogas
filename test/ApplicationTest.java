@@ -1,23 +1,13 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import org.junit.*;
-
-import play.mvc.*;
-import play.test.*;
-import play.data.DynamicForm;
-import play.data.validation.ValidationError;
-import play.data.validation.Constraints.RequiredValidator;
-import play.i18n.Lang;
-import play.libs.F;
-import play.libs.F.*;
+import org.junit.Test;
+import play.Application;
+import play.GlobalSettings;
+import play.mvc.Result;
+import play.test.Helpers;
 import play.twirl.api.Content;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static play.test.Helpers.*;
-import static org.junit.Assert.*;
 
 
 /**
@@ -36,9 +26,9 @@ public class ApplicationTest {
 
     @Test
     public void renderTemplate() {
-        Content html = views.html.index.render("Your new application is ready.");
+        Content html = views.html.index.render();
         assertEquals("text/html", html.contentType());
-        assertTrue(html.body().contains("Your new application is ready."));
+        assertTrue(html.body().contains("Registro"));
     }
 
 

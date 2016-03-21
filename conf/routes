@@ -14,6 +14,14 @@ GET     /pais/:id                 controllers.PaisController.buscaPorId(id:Long)
 GET     /paises                   controllers.PaisController.buscaTodos()
 GET     /pais/filtro/:filtro      controllers.PaisController.filtra(filtro:String)
 
+# Estado
+POST    /estado                     controllers.EstadoController.inserir()
+# PUT     /estado/:id                 controllers.EstadoController.atualizar(id:Long)
+GET     /estado/:id                 controllers.EstadoController.buscaPorId(id:Long)
+GET     /estados                     controllers.EstadoController.buscaTodos()
+DELETE  /estado/:id                 controllers.EstadoController.remover(id:Long)
+GET     /estados/filtro/:filtro      controllers.EstadoController.filtra(filtro:String)
+
 # Inscrito
 POST    /inscricao                     controllers.InscricaoController.inserir()
 PUT     /inscricao/:id                 controllers.InscricaoController.atualizar(id:Long)

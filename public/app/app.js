@@ -8,6 +8,7 @@ angular
              'toastr',
              'ngMask',
              'mgcrea.ngStrap.datepicker',
+             'mgcrea.ngStrap.navbar',
              'ui.bootstrap.showErrors'
             ]
         )

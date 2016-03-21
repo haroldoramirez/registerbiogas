@@ -13,7 +13,7 @@ angular.module('registercibiogas')
                 getAll: {method: 'GET', url: BaseUrl + '/paises', isArray: true}
           });
         }])
-    service('Inscricao',['$resource', 'BaseUrl',
+    .service('Inscricao',['$resource', 'BaseUrl',
         function($resource, BaseUrl){
             return $resource(BaseUrl + '/inscricao/:id', {}, {
                 getAll: {method: 'GET', url: BaseUrl + '/inscricoes', isArray: true}
