@@ -8,6 +8,10 @@ angular.module('registercibiogas')
           });
       };
 
+      $scope.carregaEstados = function() {
+          console.log("função carrega estado")
+      };
+
       //lógica para ativar o input quando for selecionado o radio button Outro:
       $scope.radioValue = function(value) {
             $scope.ativado = value;
