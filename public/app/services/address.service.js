@@ -13,6 +13,22 @@ angular.module('registercibiogas')
                 getAll: {method: 'GET', url: BaseUrl + '/paises', isArray: true}
           });
         }])
+    .service('Estado',['$resource', 'BaseUrl',
+        function($resource, BaseUrl){
+            return $resource(BaseUrl + '/estado/:id', {}, {
+               getAll: {method: 'GET', url: BaseUrl + '/estados', isArray: true},
+               update: {method: 'PUT', url: BaseUrl + '/estado/:id', isArray: false},
+               getFiltroEstado: {method: 'GET', url: BaseUrl + '/estado/filtro/:filtro', isArray: true}
+            });
+        }])
+    .service('Cidade',['$resource', 'BaseUrl',
+          function($resource, BaseUrl){
+            return $resource(BaseUrl + '/cidade/:id', {}, {
+               getAll: {method: 'GET', url: BaseUrl + '/cidades', isArray: true},
+               update: {method: 'PUT', url: BaseUrl + '/cidade/:id', isArray: false},
+               getFiltroCidade: {method: 'GET', url: BaseUrl + '/cidade/filtro/:filtro', isArray: true}
+            });
+        }])
     .service('Inscricao',['$resource', 'BaseUrl',
         function($resource, BaseUrl){
             return $resource(BaseUrl + '/inscricao/:id', {}, {

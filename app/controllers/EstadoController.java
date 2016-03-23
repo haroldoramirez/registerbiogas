@@ -89,10 +89,7 @@ public class EstadoController extends Controller {
     public Result buscaTodos() {
         Logger.info("Busca todos os Estados.");
 
-        return ok(Json.toJson(Ebean.find(Estado.class)
-                .order()
-                .asc("nome")
-                .findList()));
+        return ok(Json.toJson(Ebean.find(Estado.class).findList()));
     }
 
     public Result remover(Long id) {

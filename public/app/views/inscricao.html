@@ -83,7 +83,7 @@
                     <div class="form-group" show-errors>
                         <label class="col-sm-4 control-label">Estado: </label>
                         <div class="col-sm-3">
-                            <select ng-disabled="!inscrito.pais" required ng-options="estado.nome for estado in estados" ng-model="inscrito.pais.estado" id="estado" name="estado" class="form-control">
+                            <select required ng-options="estado.nome for estado in estados" ng-model="inscrito.pais.estado" id="estado" name="estado" class="form-control">
                                 <option value="">Selecione</option>
                             </select>
                         </div>
@@ -93,7 +93,7 @@
                     <div class="form-group" show-errors>
                         <label class="col-sm-4 control-label">Cidade: </label>
                         <div class="col-sm-3">
-                            <select ng-disabled="!inscrito.pais.estado" required ng-options="cidade.nome for cidade in cidades" ng-model="inscrito.pais.estado.cidade" id="cidade" name="cidade" class="form-control">
+                            <select required ng-options="cidade.nome for cidade in cidades" ng-model="inscrito.pais.estado.cidade" id="cidade" name="cidade" class="form-control">
                                 <option value="">Selecione</option>
                             </select>
                         </div>

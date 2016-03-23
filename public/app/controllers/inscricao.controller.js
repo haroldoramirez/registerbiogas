@@ -1,10 +1,16 @@
 angular.module('registercibiogas')
-  .controller('inscricao.controller', function ($scope, $log, Pais, toastr) {
+  .controller('inscricao.controller', function ($scope, $log, Pais, Estado, Cidade, toastr) {
     console.log('Controller Inscrito');
 
       $scope.init = function() {
           Pais.getAll(function(data) {
               $scope.paises = data;
+          });
+          Estado.getAll(function(data) {
+             $scope.estados = data;
+          });
+          Cidade.getAll(function(data) {
+             $scope.cidades = data;
           });
       };
 
