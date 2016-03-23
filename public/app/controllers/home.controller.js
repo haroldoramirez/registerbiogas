@@ -1,4 +1,4 @@
 angular.module('registercibiogas')
-  .controller('home.controller', function ($scope, $log) {
+  .controller('home.controller', function ($scope) {
     console.log('Controller Home');
 });

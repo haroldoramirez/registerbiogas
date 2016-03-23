@@ -83,6 +83,9 @@
                     <div class="form-group" show-errors>
                         <label class="col-sm-4 control-label">Estado: </label>
                         <div class="col-sm-3">
+                            <div class="pull-right">
+                                <a type="button" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#modalHome"></a>
+                            </div>
                             <select required ng-options="estado.nome for estado in estados" ng-model="inscrito.pais.estado" id="estado" name="estado" class="form-control">
                                 <option value="">Selecione</option>
                             </select>
@@ -182,6 +185,24 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modalHome" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Informações</h4>
+            </div>
+            <div class="modal-body">
+                O CIBiogás (Centro Internacional de Energias Renováveis–Biogás) é uma instituição científica,
+                tecnológica e de inovação, em forma de pessoa jurídica de direito privado, constituído como associação sem
+                fins lucrativos, autonomia administrativa e financeira, regida por um estatuto.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
