@@ -19,7 +19,7 @@ public class EstadoController extends Controller {
 
     public Result inserir() {
 
-        Logger.info("Inserir Controller.");
+        Logger.info("Inserir Estado Controller");
 
         Estado estado = Json.fromJson(request().body().asJson(), Estado.class);
 

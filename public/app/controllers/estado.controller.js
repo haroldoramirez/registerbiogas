@@ -102,7 +102,7 @@ angular.module('registerbiogas')
         });
     };
 
-  }).controller('modal.estado.controller', function ($scope, $uibModal, $log) {
+  }).controller('modal.estado.controller', function ($scope, $uibModal, $log, Pais) {
 
       $scope.items = ['item1', 'item2', 'item3'];
 
@@ -125,7 +125,7 @@ angular.module('registerbiogas')
         modalInstance.result.then(function (selectedItem) {
           $scope.selected = selectedItem;
         }, function () {
-          $log.info('Modal dismissed at: ' + new Date());
+
         });
       };
 
@@ -133,7 +133,7 @@ angular.module('registerbiogas')
         $scope.animationsEnabled = !$scope.animationsEnabled;
       };
 
-    }).controller('modalInstance.estado.controller', function ($scope, $uibModalInstance, items) {
+    }).controller('modalInstance.estado.controller', function ($scope, $uibModalInstance, items, Estado, toastr) {
 
     // Please note that $uibModalInstance represents a modal window (instance) dependency.
     // It is not the same as the $uibModal service used above.
@@ -143,8 +143,13 @@ angular.module('registerbiogas')
         item: $scope.items[0]
       };
 
-      $scope.ok = function () {
-        $uibModalInstance.close($scope.selected.item);
+      $scope.salvarEstado = function () {
+        Estado.save($scope.estado, function(data) {
+            console.log($scope.estado);
+            toastr.success('foi salvo com Sucesso.', 'O estado: ' + $scope.estado.nome);
+        }, function(data) {
+            toastr.error(data.data, 'Não foi possível Salvar.');
+        });
       };
 
       $scope.cancel = function () {
