@@ -8,7 +8,7 @@
                     <div class="form-group" show-errors>
                         <label class="col-sm-4 control-label">Nome:</label>
                         <div class="col-sm-5">
-                            <input maxlength="60" type="text" class="form-control" name="nome" ng-model="inscrito.nome" required placeholder="Insira o nome"/>
+                            <input maxlength="60" type="text" class="form-control" name="nome" ng-model="inscricao.nome" required placeholder="Insira o nome"/>
                         </div>
                     </div>
 
@@ -17,12 +17,12 @@
                         <div class="col-sm-3">
                             <div class="radio">
                                 <label>
-                                    <input required ng-model="inscrito.sexo" type="radio" name="sexo" value="m" /> Masculino
+                                    <input required ng-model="inscricao.sexo" type="radio" name="sexo" value="m" /> Masculino
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input required ng-model="inscrito.sexo" type="radio" name="sexo" value="f" /> Feminino
+                                    <input required ng-model="inscricao.sexo" type="radio" name="sexo" value="f" /> Feminino
                                 </label>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                     <div class="form-group" show-errors>
                         <label class="col-sm-4 control-label">Data de Nascimento:</label>
                         <div class="col-sm-2">
-                            <input required placeholder="dd/mm/aaaa" type="text" class="form-control" ng-model="inscrito.datanascimento" data-date-format="dd/MM/yyyy" data-date-type="number" data-max-date="02/10/02" data-autoclose="1" name="datanascimento" bs-datepicker>
+                            <input required placeholder="dd/mm/aaaa" type="text" class="form-control" ng-model="inscricao.datanascimento" data-date-format="dd/MM/yyyy" data-date-type="number" data-max-date="02/10/02" data-autoclose="1" name="datanascimento" bs-datepicker>
                         </div>
                     </div>
 
@@ -40,7 +40,7 @@
                     <div class="form-group" show-errors>
                         <label class="col-sm-4 control-label">Nível de Escolaridade: </label>
                         <div class="col-sm-3">
-                            <select required ng-model="inscrito.escolaridade" id="escolaridade" name="escolaridade" class="form-control">
+                            <select required ng-model="inscricao.escolaridade" id="escolaridade" name="escolaridade" class="form-control">
                                 <option value="">Selecione</option>
                                 <option value="MEDIO">Ensino Médio Completo</option>
                                 <option value="TECNICO">Ensino Técnico</option>
@@ -57,7 +57,7 @@
                     <div class="form-group" show-errors>
                         <label class="col-sm-4 control-label">Profissão:</label>
                         <div class="col-sm-3">
-                            <input name="profissao" required placeholder="Insira a sua profissão" maxlength="35" class="form-control" type="text" ng-model="inscrito.profissao" id="profissao"/>
+                            <input name="profissao" required placeholder="Insira a sua profissão" maxlength="35" class="form-control" type="text" ng-model="inscricao.profissao" id="profissao"/>
                         </div>
                     </div>
 
@@ -65,7 +65,7 @@
                     <div class="form-group" show-errors>
                         <label class="col-sm-4 control-label">Instituição:</label>
                         <div class="col-sm-3">
-                            <input name="instituicao" required placeholder="Insira a sua instituição" maxlength="45" class="form-control" type="text" ng-model="inscrito.instituicao" id="instituicao"/>
+                            <input name="instituicao" required placeholder="Insira a sua instituição" maxlength="45" class="form-control" type="text" ng-model="inscricao.instituicao" id="instituicao"/>
                         </div>
                     </div>
 
@@ -73,32 +73,63 @@
                     <div class="form-group" show-errors>
                         <label class="col-sm-4 control-label">País: </label>
                         <div class="col-sm-3">
-                            <select required ng-options="pais.nome for pais in paises" ng-model="inscrito.pais" id="pais" name="pais" class="form-control">
+                            <select required ng-options="pais.nome for pais in paises" ng-model="inscricao.pais" id="pais" name="pais" class="form-control">
                                 <option value="">Selecione</option>
                             </select>
                         </div>
                     </div>
 
                     <!-- Select Estados -->
-                    <div class="form-group" show-errors>
-                        <label class="col-sm-4 control-label">Estado: </label>
-                        <div class="col-sm-3">
-                            <div class="pull-right">
-                                <a type="button" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#modalHome"></a>
+                    <div ng-controller="modal.estado.controller">
+                        <script type="text/ng-template" id="modalEstado.html">
+                            <div class="modal-header">
+                                <h3 class="modal-title">Novo Estado</h3>
                             </div>
-                            <select required ng-options="estado.nome for estado in estados" ng-model="inscrito.pais.estado" id="estado" name="estado" class="form-control">
-                                <option value="">Selecione</option>
-                            </select>
+                            <div class="modal-body">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type="button" ng-click="ok()">Salvar</button>
+                                <button class="btn btn-default" type="button" ng-click="cancel()">Cancelar</button>
+                            </div>
+                        </script>
+                        <div class="form-group" show-errors>
+                            <label class="col-sm-4 control-label">Estado: </label>
+                            <div class="col-sm-3">
+                                <div class="pull-right">
+                                    <a ng-show="inscricao.pais.id" data-toggle="tooltip" title="Novo Estado" type="button" class="glyphicon glyphicon-plus" ng-click="open()"></a>
+                                </div>
+                                <select ng-disabled="!inscricao.pais.id" required ng-options="estado.nome for estado in estados" ng-model="inscricao.estado" id="estado" name="estado" class="form-control">
+                                    <option value="">Selecione</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Select Cidades -->
-                    <div class="form-group" show-errors>
-                        <label class="col-sm-4 control-label">Cidade: </label>
-                        <div class="col-sm-3">
-                            <select required ng-options="cidade.nome for cidade in cidades" ng-model="inscrito.pais.estado.cidade" id="cidade" name="cidade" class="form-control">
-                                <option value="">Selecione</option>
-                            </select>
+                    <div ng-controller="modal.cidade.controller">
+                        <script type="text/ng-template" id="modalCidade.html">
+                            <div class="modal-header">
+                                <h3 class="modal-title">Nova Cidade</h3>
+                            </div>
+                            <div class="modal-body">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type="button" ng-click="ok()">Salvar</button>
+                                <button class="btn btn-default" type="button" ng-click="cancel()">Cancelar</button>
+                            </div>
+                        </script>
+                        <div class="form-group" show-errors>
+                            <label class="col-sm-4 control-label">Cidade: </label>
+                            <div class="col-sm-3">
+                                <div class="pull-right">
+                                    <a ng-show="inscricao.estado.id" data-toggle="tooltip" title="Nova Cidade" type="button" class="glyphicon glyphicon-plus" ng-click="open()"></a>
+                                </div>
+                                <select ng-disabled="!inscricao.estado.id" required ng-options="cidade.nome for cidade in cidades" ng-model="inscricao.pais.estado.cidade" id="cidade" name="cidade" class="form-control">
+                                    <option value="">Selecione</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
@@ -106,7 +137,7 @@
                     <div class="form-group" show-errors>
                         <label class="col-sm-4 control-label">Telefone:</label>
                         <div class="col-sm-2">
-                            <input placeholder="(__) ____-____" mask="(99) 9?9999-9999" name="telefone" required placeholder="" maxlength="45" class="form-control" type="text" ng-model="inscrito.telefone" id="telefone"/>
+                            <input placeholder="(__) ____-____" mask="(99) 9?9999-9999" name="telefone" required placeholder="" maxlength="45" class="form-control" type="text" ng-model="inscricao.telefone" id="telefone"/>
                         </div>
                     </div>
 
@@ -114,7 +145,7 @@
                     <div class="form-group" show-errors>
                         <label class="col-sm-4 control-label">CPF:</label>
                         <div class="col-sm-2">
-                            <input placeholder="___.___.___-__" mask="999.999.999-99" name="cpf" required placeholder="" maxlength="45" class="form-control" type="text" ng-model="inscrito.cpf" id="cpf"/>
+                            <input placeholder="___.___.___-__" mask="999.999.999-99" name="cpf" required placeholder="" maxlength="45" class="form-control" type="text" ng-model="inscricao.cpf" id="cpf"/>
                         </div>
                     </div>
 
@@ -122,7 +153,7 @@
                     <div class="form-group" show-errors>
                         <label class="col-sm-4 control-label">Email:</label>
                         <div class="col-sm-3">
-                            <input name="email" required placeholder="Insira um email válido" maxlength="45" class="form-control" type="email" ng-model="inscrito.email" id="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"/>
+                            <input name="email" required placeholder="Insira um email válido" maxlength="45" class="form-control" type="email" ng-model="inscricao.email" id="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"/>
                         </div>
                     </div>
 
@@ -132,12 +163,12 @@
                         <div class="col-md-4">
                             <div class="radio">
                                 <label>
-                                    <input required ng-model="inscrito.ead" type="radio" name="ead" value="t" /> Sim
+                                    <input required ng-model="inscricao.ead" type="radio" name="ead" value="t" /> Sim
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input required ng-model="inscrito.ead" type="radio" name="ead" value="f" /> Não
+                                    <input required ng-model="inscricao.ead" type="radio" name="ead" value="f" /> Não
                                 </label>
                             </div>
                         </div>
@@ -149,29 +180,29 @@
                         <div class="col-md-4">
                             <div class="radio">
                                 <label>
-                                    <input required ng-change='radioValue("biogas")' ng-model="inscrito.fonte" type="radio" name="fonte" value="biogas" /> Site do CIBIogás-ER
+                                    <input required ng-change='radioValue("biogas")' ng-model="inscricao.fonte" type="radio" name="fonte" value="biogas" /> Site do CIBIogás-ER
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input required ng-change='radioValue("amigos")' ng-model="inscrito.fonte" type="radio" name="fonte" value="amigos" /> Indicação de amigos
+                                    <input required ng-change='radioValue("amigos")' ng-model="inscricao.fonte" type="radio" name="fonte" value="amigos" /> Indicação de amigos
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input required ng-change='radioValue("facebook")' ng-model="inscrito.fonte" type="radio" name="fonte" value="facebook" /> Facebook
+                                    <input required ng-change='radioValue("facebook")' ng-model="inscricao.fonte" type="radio" name="fonte" value="facebook" /> Facebook
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input required ng-change='radioValue("email")' ng-model="inscrito.fonte" type="radio" name="fonte" value="email" /> Email
+                                    <input required ng-change='radioValue("email")' ng-model="inscricao.fonte" type="radio" name="fonte" value="email" /> Email
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input required ng-change='radioValue("outros")' ng-model="inscrito.fonte" type="radio" name="fonte" value="outros" /> Outro:
+                                    <input required ng-change='radioValue("outros")' ng-model="inscricao.fonte" type="radio" name="fonte" value="outros" /> Outro:
                                     <div class="form-group" show-errors>
-                                        <input required name="observacoes" ng-model="inscrito.observacoes" ng-disabled='!ativaInput' maxlength="25" class="form-control"/>
+                                        <input required name="observacoes" ng-model="inscricao.observacoes" ng-disabled='!ativaInput' maxlength="25" class="form-control"/>
                                     </div>
                                 </label>
                             </div>
@@ -185,24 +216,6 @@
                         </div>
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="modalHome" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Informações</h4>
-            </div>
-            <div class="modal-body">
-                O CIBiogás (Centro Internacional de Energias Renováveis–Biogás) é uma instituição científica,
-                tecnológica e de inovação, em forma de pessoa jurídica de direito privado, constituído como associação sem
-                fins lucrativos, autonomia administrativa e financeira, regida por um estatuto.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

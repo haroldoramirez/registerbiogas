@@ -1,4 +1,4 @@
-angular.module('market')
+angular.module('registerbiogas')
   .controller('EstadoCreateController', function ($scope, $location, Estado, Pais, toastr) {
 
       $scope.init = function() {
@@ -102,4 +102,52 @@ angular.module('market')
         });
     };
 
-  });
+  }).controller('modal.estado.controller', function ($scope, $uibModal, $log) {
+
+      $scope.items = ['item1', 'item2', 'item3'];
+
+      $scope.animationsEnabled = true;
+
+      $scope.open = function (size) {
+
+        var modalInstance = $uibModal.open({
+          animation: $scope.animationsEnabled,
+          templateUrl: 'modalEstado.html',
+          controller: 'modalInstance.estado.controller',
+          size: size,
+          resolve: {
+            items: function () {
+              return $scope.items;
+            }
+          }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+          $scope.selected = selectedItem;
+        }, function () {
+          $log.info('Modal dismissed at: ' + new Date());
+        });
+      };
+
+      $scope.toggleAnimation = function () {
+        $scope.animationsEnabled = !$scope.animationsEnabled;
+      };
+
+    }).controller('modalInstance.estado.controller', function ($scope, $uibModalInstance, items) {
+
+    // Please note that $uibModalInstance represents a modal window (instance) dependency.
+    // It is not the same as the $uibModal service used above.
+
+      $scope.items = items;
+      $scope.selected = {
+        item: $scope.items[0]
+      };
+
+      $scope.ok = function () {
+        $uibModalInstance.close($scope.selected.item);
+      };
+
+      $scope.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+      };
+    });

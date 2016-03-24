@@ -1,6 +1,6 @@
 angular
     .module
-        ('registercibiogas',
+        ('registerbiogas',
             ['ngRoute',
              'ngResource',
              'ngAnimate',
@@ -9,6 +9,7 @@ angular
              'ngMask',
              'mgcrea.ngStrap.datepicker',
              'mgcrea.ngStrap.navbar',
+             'mgcrea.ngStrap.tooltip',
              'ui.bootstrap.showErrors'
             ]
         )

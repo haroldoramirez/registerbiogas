@@ -1,4 +1,4 @@
-angular.module('registercibiogas')
+angular.module('registerbiogas')
     .service('Usuario',['$resource', 'BaseUrl',
         function($resource, BaseUrl){
             return $resource(BaseUrl + '/usuario/:id', {}, {
