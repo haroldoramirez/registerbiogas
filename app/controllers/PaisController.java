@@ -25,10 +25,7 @@ public class PaisController extends Controller {
     }
 
     public Result buscaTodos() {
-        return ok(Json.toJson(Ebean.find(Pais.class)
-                .order()
-                .asc("nome")
-                .findList()));
+        return ok(Json.toJson(Ebean.find(Pais.class).findList()));
     }
 
     public Result filtra(String filtro) {

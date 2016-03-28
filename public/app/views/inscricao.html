@@ -86,11 +86,11 @@
                                 <h3 class="modal-title">Novo Estado</h3>
                             </div>
                             <div class="modal-body">
-                                <form class="form-horizontal" ng-submit="save() "class="form-horizontal" ng-submit="save()" id="modal_estado_form" name="modal_estado_form">
+                                <form class="form-horizontal" ng-submit="save()" id="modal_estado_form" name="modal_estado_form">
                                     <div class="form-group" show-errors>
                                         <div class="col-sm-5">
                                             <label class="control-label">País:</label>
-                                            <input disabled maxlength="60" type="text" class="form-control" name="paisSelecionado" ng-model="pais.nome"/>
+                                            <input maxlength="60" type="text" class="form-control" name="paisSelecionado" ng-model="pais.nome"/>
                                         </div>
                                         <div class="col-sm-5">
                                             <label class="control-label">Estado:</label>
@@ -112,7 +112,7 @@
                             <label class="col-sm-4 control-label">Estado: </label>
                             <div class="col-sm-3">
                                 <div class="pull-right">
-                                    <a ng-show="inscricao.pais.id" data-toggle="tooltip" title="Novo Estado" type="button" class="glyphicon glyphicon-plus" ng-click="open()"></a>
+                                    <a ng-show="inscricao.pais.id" data-toggle="tooltip" title="Novo Estado" type="button" class="glyphicon glyphicon-plus" ng-click="open(inscricao.pais)"></a>
                                 </div>
                                 <select ng-disabled="!inscricao.pais.id" required ng-options="estado.nome for estado in estados" ng-model="inscricao.estado" id="estado" name="estado" class="form-control">
                                     <option value="">Selecione</option>

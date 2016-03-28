@@ -108,13 +108,17 @@ angular.module('registerbiogas')
 
       $scope.animationsEnabled = true;
 
-      $scope.open = function (size) {
+
+      $scope.open = function (pais) {
+
+            $scope.pais = pais;
+            console.log($scope.pais);
 
         var modalInstance = $uibModal.open({
           animation: $scope.animationsEnabled,
           templateUrl: 'modalEstado.html',
           controller: 'modalInstance.estado.controller',
-          size: size,
+          size: 'md',
           resolve: {
             items: function () {
               return $scope.items;
